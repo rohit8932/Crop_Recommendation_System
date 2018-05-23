@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -7,19 +7,20 @@
 	<title>
 		Crop Recommendation demo</title>
 	
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /><link rel="shortcut icon" href="favicon30f4.ico?v=3" type="image/x-icon" />
-	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	
+	
 {% load static %}
 <!-- Bootstrap Core CSS -->
 <link href="{% static 'css/login.min.1512879046.css'%}" rel='stylesheet' >
 	
 	</head>
-<body ng-app="loginApp" class="body-analysis2" style="background-color:#ffffff;" ng-cloak data-origin="landing">
+<body ng-app="loginApp" class="" style="background-color:#ffffff;" ng-cloak data-origin="">
+
 <div id="loginController" ng-controller="loginController" class="wrapper" ng-cloak>
   
-  <div id="printflash" style="display:none;"></div>
+  
 
-  <div id="Header" class="header-final header-transparent" style="height:auto;position:fixed;z-index:1;left:0;"> </div>
+
   <div class="wrapper1">
     <div class="container" style="width:100%;padding:0;">
    	  <section class="landing-page-section-first clearfix" style="background-image: url('{% static 'images/main-cover-reduced12.jpg' %}');background-size: cover;top:75px;margin-top:-75px;">
@@ -73,7 +74,9 @@ This problem of the farmers has been addressed through our recommendation system
                 </p>
             </div>
 </div>
-		 <div class="col-md-6 col-sm-12 col-xs-12" onclick="window.location.href='svm'" style="margin: 0 0 45px; cursor: pointer;">
+<div class="algo-wrapper" style="background-color: inherit; height: 180vh; padding-top: 40px; width: 1000px; margin-left: 250px;border: solid 1px black; box-shadow:   8px 10px 90px #888888; "  >
+
+		 <div class="col-md-6 col-sm-12 col-xs-12" onclick="window.location.href='svm'" style="margin: 0 0 40px 30px; cursor: pointer; width: 400px;">
                     <div class="ts--card card-bs">
                       <img src="{% static 'images/slider7.jpg' %}" alt="" style='height: 100%; width: 100%; object-fit: contain;'>
                       <h3 class="ts--title">SVM</h3>
@@ -87,7 +90,7 @@ This problem of the farmers has been addressed through our recommendation system
                     </div>
                   </div>
 				  
-				  <div class="col-md-6 col-sm-12 col-xs-12" onclick="window.location.href='naivebayes'" style="margin: 0 0 45px; cursor: pointer;">
+				  <div class="col-md-6 col-sm-12 col-xs-12" onclick="window.location.href='naivebayes'" style="margin: 0 0 40px 140px; cursor: pointer; width: 400px;">
                     <div class="ts--card card-bs">
                       <img src="{% static 'images/slider6.jpg' %}" alt="" style='height: 100%; width: 100%; object-fit: contain'>
                       <h3 class="ts--title">Naive Bayes</h3>
@@ -101,7 +104,7 @@ This problem of the farmers has been addressed through our recommendation system
                     </div>
                   </div>
 				  
-				  <div class="col-md-6 col-sm-12 col-xs-12" onclick="window.location.href='randomforest'" style="margin: 0 0 45px; cursor: pointer;">
+				  <div class="col-md-6 col-sm-12 col-xs-12" onclick="window.location.href='randomforest'" style="margin: 0 0 40px 30px; cursor: pointer; width: 400px;">
                     <div class="ts--card card-bs">
                       <img src="{% static 'images/slider5.jpg' %}" alt="" style='height: 100%; width: 100%; object-fit: contain'>
                       <h3 class="ts--title">Random Forest</h3>
@@ -119,7 +122,7 @@ This problem of the farmers has been addressed through our recommendation system
 
           
 				  
-				  <div class="col-md-6 col-sm-12 col-xs-12" onclick="window.location.href='neuralnetwork'" style="margin: 0 0 45px; cursor: pointer;">
+				  <div class="col-md-6 col-sm-12 col-xs-12" onclick="window.location.href='neuralnetwork'" style="margin: 0 0 40px 140px; cursor: pointer; width: 400px;">
                     <div class="ts--card card-bs">
                       <img src="{% static 'images/slider4.jpg' %}" alt="" style='height: 100%; width: 100%; object-fit: contain'>
                       <h3 class="ts--title">Neural Network</h3>
@@ -135,7 +138,7 @@ This problem of the farmers has been addressed through our recommendation system
 
 
 
-          <div class="col-md-6 col-sm-12 col-xs-12" onclick="window.location.href='ensembleTech'" style="margin: 0 0 45px 410px; cursor: pointer;height: 300; width: 350;">
+          <div class="col-md-6 col-sm-12 col-xs-12" onclick="window.location.href='ensembleTech'" style="margin-left:25% ; cursor: pointer;height: 300; width: 350;">
             
                     <div class="ts--card card-bs">
                       <img src="{% static 'images/slider3.jpg' %}" alt="" style='height: 100%; width: 100%; object-fit: contain'>
@@ -151,64 +154,31 @@ This problem of the farmers has been addressed through our recommendation system
                   </div>
 
 
-      	</section>
-      	
+  </div>
+<div style="background-color:#000000; height: 200px; border-style: solid;" class="foott">     
 
-      	
-        
-<section class="landing-page-section-fourth clearfix" style="background-color: #DDDCDB;min-height:0">
-        <div class="container font-mont-regular" style="width:1230px;padding:30px 0;">
-              <div class="pull-left">
-                <div style="max-width:850px;margin:0 auto;">
-                  <div class="col-lg-12 col-md-12 col-sm-12" style="display:flex;justify-content:center;"> <a href="#" onclick="window.location.href='signup'" class="fl-left btn-quadnery" style="margin-top:14px;">Sign up</a>
-                  </div>
-                </div>  
-              </div>
-        </div>  
-      </section>
-        <div></div>
-        <section class="landing-page-section-footer clearfix">
-
-
-
-
-
-<div class="layer" style="background:#000000;padding-bottom:0;">     
-<div class="container" style="max-width:1230px;padding:0;>
-  <div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom:50px;padding:0;">
-    <ul class="col-md-12 col-sm-12 col-xs-12 outer-ul" style="list-style-type:none;margin:20px 0;">
-      <li id="logo-footer" style="padding-left:30px;"> <!-- <div class="sprite-static sprite-rsz_logo-name-new" style="margin:0;"></div> -->      </li>
-      <li>
-        <ul style="float: left; color: #ffffff" class="inner-ul col-md-12 col-sm-12 col-xs-12" style="margin:0;"> 
-
-          <li id="navlink"><a href="index.html" target="_self">Home</a></li>
-			    <li id="navlink"><a href="" target="_self">Log in</a></li>
-			    <li id="navlink"><a href="" target="_self">Sign up </a></li>
-          <li id="navlink"><a href="" target="_self">About Us</a></li>
-          <li id="navlink"><a href="" target="_self">Contact Us</a></li>
-          
-
-
-          
-          </ul>
-      </li>
+  
       
-      <li> </li>
-    </ul> 
-  </div>          
+        <ul> 
+
+          <li id="navlink" class="F"><a href="#" target="_self">Home</a></li>
+			    <li id="navlink"><a href="{% url 'login' %}" target="_self">Log in</a></li>
+			    <li id="navlink"><a href="{% url 'signup' %}" target="_self">Sign up </a></li>
+          <li id="navlink"><a href="#" target="_self">About Us</a></li>
+          <li id="navlink"><a href="#" target="_self">Contact Us</a></li>
+    
+        </ul>
+               
+
+
 </div>
-<div> </div>
-</div>
-        </section>
+      </section>
+
+</section>
+        
     </div>
   </div>
-  
-  <style type="text/css">
-.modal{
-  z-index: 2000;
-}
 
-</style>
 
 
 </div>
@@ -216,103 +186,28 @@ This problem of the farmers has been addressed through our recommendation system
 		  
 
 <style type="text/css">
+
+.foott{
+  margin-top: 50px;
+}
+
+
 #navlink {
-  margin-right: 10px;
+  font-size: 20px;
+  margin-top : 100px;
+  margin-right: 20px;
   float: left;
   padding-top: 12px;
+  
 }
-.landing-page-section-footer{  
-  position: relative;
-  min-height: 200px;
-  z-index: 1;
+#navlink > a {
+  color: white;
+
 }
-.landing-page-section-footer ul.outer-ul li{
-  width: 23.5%;
-  display: inline-block;
-  vertical-align: top;
+.F{
+  margin-left: 35%;
 }
-.landing-page-section-footer ul.inner-ul li{
-  width: 100%;
-  vertical-align: middle;
-  padding: 3px 0;
-  padding-left: 45px;
-  color: #fff;
-}
-.landing-page-section-footer ul li a{
-  font-size: 16px;
-  color: #fff;
-}
-.landing-page-section-footer ul li a:hover{
-  text-decoration: none;
-  color: rgba(13, 172, 219, 0.79);
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
-}
-.landing-page-section-footer ul li b{
-  color: #fff;
-  font-size: 16px;
-  font-family: 'Montserrat',Helvetica,sans-serif;
-}
-.layer {
-  background-color: #f8f8f8;
-  padding: 20px 0;
-}
-@media only screen and (min-width: 1025px){
-  .landing-page-section-footer .container{
-    width: 100% !important;
-    max-width: 82% !important;
-  }
-  #logo-footer p{
-    padding-left: 5px !important;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 1024px){
-  .landing-page-section-footer .container{
-    width: 100% !important;
-  }
-  .landing-page-section-footer{
-    min-height: 215px !important;
-  }
-  #logo-footer p{
-    padding-left: 5px !important;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .landing-page-section-footer .container{
-    width: 100% !important;
-  }
-  #logo-footer{
-    display: none;
-  }
-  .landing-page-section-footer ul.outer-ul li {
-    float: left;
-    width: 33.33333%;
-    padding: 0 10px; 
-  }
-  .landing-page-section-footer ul.inner-ul{
-    padding: 0;
-  }
-}
-@media only screen and (min-width: 595px) and (max-width: 767px) {
-  .landing-page-section-footer{
-    min-height: 215px !important;
-  }
-  .landing-page-section-footer ul.inner-ul li{
-    padding: 0 35px 0 0 !important;
-    width: 100%; 
-  }
-}
-@media only screen and (max-width: 594px){
-  .landing-page-section-footer{
-    min-height: 225px !important;
-  }
-  .landing-page-section-footer ul.inner-ul li{
-    padding: 0 !important;
-    width: 100%; 
-    margin: 5px 0;
-  }
-}
+
 </style>
 
 
