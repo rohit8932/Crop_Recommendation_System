@@ -7,158 +7,99 @@
 	<title>
 		Crop Recommendation demo</title>
 	
-	
-	
 {% load static %}
-<!-- Bootstrap Core CSS -->
 <link href="{% static 'css/login.min.1512879046.css'%}" rel='stylesheet' >
+<link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway|Source+Code+Pro" rel="stylesheet">
+
 	
 	</head>
-<body ng-app="loginApp" class="" style="background-color:#ffffff;" ng-cloak data-origin="">
-
-<div id="loginController" ng-controller="loginController" class="wrapper" ng-cloak>
+<body  class="" style="background-color:#ffffff;">
   
-  
-
-
   <div class="wrapper1">
-    <div class="container" style="width:100%;padding:0;">
-   	  <section class="landing-page-section-first clearfix" style="background-image: url('{% static 'images/main-cover-reduced12.jpg' %}');background-size: cover;top:75px;margin-top:-75px;">
-          <div class="container text-center" style="width:1000px;">
-			  <p style="font-size: 36px;line-height: 29px;margin: 2px 0 0;font-family: 'Montserrat';color: #D9E5D5;">
+    <div class="container" style="width:100%;padding:0; height: 100vh;">
+
+   	  <section class="landing-page clearfix" style="background-image: url('{% static 'images/landing-image.jpg' %}');background-size: cover; height: 100vh;">
+
+      <div class="text" style="width: 100%;  margin-top: 5vh; text-align: center;" >
+			  <h1 style="font-size: 66px;line-height: 40px;font-family: 'Raleway', helvetica, sans; font-weight: 100; color: rgba(255, 255, 255, 0.8); ">
                  
                   Crop Recommendation to Maximize crop yield
-                </p>
-            <!--h3 class="hero-message">Crop Recommendation  </h3-->  
-            <h1 class="hero-hashtag cd-headline letters type">
-              <span class="cd-words-wrapper waiting">
+         </h1>
+      </div>            
+                  
+              <!-- <div class="landing-signup" style="margin-top: 70vh ; background-color: ; "  onclick="window.location.href='login'"  >
+                <div class="css-banner text-center" style="width:100%;left:auto; color: #000;">Let's Start</div>
                 
-                
-              </span>
-            </h1>               
-            <a href="#">               
-              <div class="landing-signup" onclick="window.location.href='login'">
-                <div class="css-banner text-center" style="width:100%;left:auto;">Let's Start</div>
-              </div>
-            </a>
-          </div>          
+              </div> -->
+              <button onclick="scrollWin()" style="width:150px; height : 40px; margin-top: 75vh; margin-left: 44vw; padding: 0px;background-color: orange; text-align: center; border: none; "><h4 style="color: black;">Let's Start</h4></button>
+            
+                 
       	</section>
-   	  <div style="background-color: #D3D3D3" id="scroll-top-detector">
-          <div class="container" style="width:100%;height:75px;position:relative;transition:all 0.3s linear;visibility:hidden;opacity:0;">
-            <a href="#" id="Logo2" class="header-final-logo" style="transition:all 0.3s linear;width:50px;left:48%;">
-              
-            </a>           
-          </div>    
-      	</div>
-      	<section  style="background-color: #D3D3D3" id="lpss" class="landing-page-section-second clearfix">   
-          <!-- <div id="scroll-arrow" class="page-scroll-arrow" onclick="scrollToCourse(-30);">
-            <div class="arrow-moving" style="width:18px;height:18px;">
-              <div class="sprite-static sprite-rsz_arrow-31-48" style="-webkit-transform:rotate(90deg);transform: rotate(90deg);"></div>
-            </div>  
-          </div>  -->
+    </div>
+<section  style="background-color: #fff">   
           
-          <div class="container" style="width:1000px;">
-            <div class="pull-left col-md-12 col-sm-12 col-xs-12 description text-center" style="margin:35px 0 40px;color:#333;">
-                <p style="font-size: 23px;line-height: 29px;margin: 15px 0 0;font-family: 'Montserrat';">
+  <div class="algo-wrapper" style=""  >
+    <div class="box">
+		     <div class="models" onclick="window.location.href='svm'" style=" ">
+                    
+                      <img src="{% static 'images/slider7.jpg' %}" alt="">
+                      <h3 class="model-title"><p>SVM</p></h3>
+						
+                      <div class="run" onclick="window.location.href='svm'"><p style="">RUN</p></div>
+                    </div>
                   
-                  Crop Recommendation to Maximize crop yield
-                  <br>
-                  <br>
-                </p>
-                <p style="font-size:19px;color: #000; text-align: justify;">
+				  
+				  <div class="models" onclick="window.location.href='naivebayes'">
+                    
+                      <img src="{% static 'images/slider6.jpg' %}" alt="">
+                      <h3 class="model-title"><p>Naive Bayes</p></h3>
+                      <div class="run" onclick="window.location.href='naivebayes'" style="background-color: #FFC107;"><p style="">RUN</p></div>
+                    </div>
                   
-                  Agriculture in India plays a predominant role in economy and employment.
-The common problem  among the Indian farmers are they don’t choose the right crop based on their soil requirements. Due to this they face a serious problems in productivity.
-This problem of the farmers has been addressed through our recommendation system.
-
-                </p>
-            </div>
-</div>
-<div class="algo-wrapper" style="background-color: inherit; height: 180vh; padding-top: 40px; width: 1000px; margin-left: 250px;border: solid 1px black; box-shadow:   8px 10px 90px #888888; "  >
-
-		 <div class="col-md-6 col-sm-12 col-xs-12" onclick="window.location.href='svm'" style="margin: 0 0 40px 30px; cursor: pointer; width: 400px;">
-                    <div class="ts--card card-bs">
-                      <img src="{% static 'images/slider7.jpg' %}" alt="" style='height: 100%; width: 100%; object-fit: contain;'>
-                      <h3 class="ts--title">SVM</h3>
-						
-                      <!-- <div class="ts--graphics sprite-static sprite-rsz_jee" style="background-color:#FFC107;"></div> -->
-                      <div class="ts--info">
-                
-                        <p class="ts--subtitle">Run Algorithm</p>
-                      </div>
-                      <div class="ts--cta" onclick="window.location.href='svm'" style="background-color: #FFC107;">Run</div>
-                    </div>
-                  </div>
 				  
-				  <div class="col-md-6 col-sm-12 col-xs-12" onclick="window.location.href='naivebayes'" style="margin: 0 0 40px 140px; cursor: pointer; width: 400px;">
-                    <div class="ts--card card-bs">
-                      <img src="{% static 'images/slider6.jpg' %}" alt="" style='height: 100%; width: 100%; object-fit: contain'>
-                      <h3 class="ts--title">Naive Bayes</h3>
+				  <div class=" models" onclick="window.location.href='randomforest'" >
+                    
+                      <img src="{% static 'images/slider5.jpg' %}" alt="" >
+                      <h3 class="model-title"><p>Random Forest</p></h3>
 						
-                      <!-- <div class="ts--graphics sprite-static sprite-rsz_jee" style="background-color:#FFC107;"></div> -->
-                      <div class="ts--info">
-							
-                        <p class="ts--subtitle">Run Algorithm</p>
-                      </div>
-                      <div class="ts--cta" onclick="window.location.href='naivebayes'" style="background-color: #FFC107;">Run</div>
-                    </div>
-                  </div>
-				  
-				  <div class="col-md-6 col-sm-12 col-xs-12" onclick="window.location.href='randomforest'" style="margin: 0 0 40px 30px; cursor: pointer; width: 400px;">
-                    <div class="ts--card card-bs">
-                      <img src="{% static 'images/slider5.jpg' %}" alt="" style='height: 100%; width: 100%; object-fit: contain'>
-                      <h3 class="ts--title">Random Forest</h3>
-						
-                      <!-- <div class="ts--graphics sprite-static sprite-rsz_jee" style="background-color:#FFC107;"></div> -->
-                      <div class="ts--info">
-                
-                        <p class="ts--subtitle">Run Algorithm</p>
-                      </div>
-                      <div class="ts--cta" onclick="window.location.href='randomforest'" style="background-color: #FFC107;">Run</div>
-                    </div>
+                      
+                      
+                      <div class="run" onclick="window.location.href='randomforest'" style="background-color: #FFC107;"><p style="">RUN</p></div>
+                  
                   </div>
 
 
 
           
 				  
-				  <div class="col-md-6 col-sm-12 col-xs-12" onclick="window.location.href='neuralnetwork'" style="margin: 0 0 40px 140px; cursor: pointer; width: 400px;">
-                    <div class="ts--card card-bs">
-                      <img src="{% static 'images/slider4.jpg' %}" alt="" style='height: 100%; width: 100%; object-fit: contain'>
-                      <h3 class="ts--title">Neural Network</h3>
+				  <div class="models sl-model" onclick="window.location.href='neuralnetwork'" >
+                    
+                      <img src="{% static 'images/slider4.jpg' %}" alt="" >
+                      <h3 class="model-title"><p>Neural Network</p></h3>
 						
-                      <!-- <div class="ts--graphics sprite-static sprite-rsz_jee" style="background-color:#FFC107;"></div> -->
-                      <div class="ts--info">
-                
-                        <p class="ts--subtitle">Run Algorithm</p>
-                      </div>
-                      <div class="ts--cta" onclick="window.location.href='neuralnetwork'" style="background-color: #FFC107;">Run</div>
-                    </div>
+                      
+                     
+                      <div class="run" onclick="window.location.href='neuralnetwork'" style="background-color: #FFC107;"><p style="">RUN</p></div>
+                    
                   </div>
 
 
 
-          <div class="col-md-6 col-sm-12 col-xs-12" onclick="window.location.href='ensembleTech'" style="margin-left:25% ; cursor: pointer;height: 300; width: 350;">
+          <div class="models l-model" onclick="window.location.href='ensembleTech'" >
             
-                    <div class="ts--card card-bs">
-                      <img src="{% static 'images/slider3.jpg' %}" alt="" style='height: 100%; width: 100%; object-fit: contain'>
-                      <h3 class="ts--title">Ensemble</h3>
+                    
+                      <img src="{% static 'images/slider3.jpg' %}" alt="" >
+                      <h3 class="mode-title"><p>Ensemble</p></h3>
             
-                      <!-- <div class="ts--graphics sprite-static sprite-rsz_jee" style="background-color:#FFC107;"></div> -->
-                      <div class="ts--info">
-                
-                        <p class="ts--subtitle">Run Algorithm</p>
-                      </div>
-                      <div class="ts--cta" onclick="window.location.href='ensembleTech'" style="background-color: #FFC107;">Run</div>
-                    </div>
-                  </div>
+                     
+                      <div class="run" onclick="window.location.href='ensembleTech'" style="background-color: #FFC107;"><p style="">RUN</p></div>
+                  
+          </div>
+        </div>
+    </div>
+</section>
 
-
-  </div>
 <div style="background-color:#000000; height: 200px; border-style: solid;" class="foott">     
-
-  
-      
         <ul> 
 
           <li id="navlink" class="F"><a href="#" target="_self">Home</a></li>
@@ -168,27 +109,22 @@ This problem of the farmers has been addressed through our recommendation system
           <li id="navlink"><a href="#" target="_self">Contact Us</a></li>
     
         </ul>
-               
-
-
 </div>
-      </section>
-
-</section>
-        
-    </div>
-  </div>
-
-
-
+            
 </div>
+  
 
 		  
 
 <style type="text/css">
+p{
+  margin: 0px;
+  padding: 0px;
+}
 
 .foott{
-  margin-top: 50px;
+  clear: both;
+  margin-top: 0px;
 }
 
 
@@ -208,9 +144,93 @@ This problem of the farmers has been addressed through our recommendation system
   margin-left: 35%;
 }
 
+
+.algo-wrapper{
+  background-color: #fff;
+  height: 130vh;
+  
+  width: 100%;
+  /*border: solid 0.5px black;*/
+  /*box-shaow:   8px 10px 90px #888888;*/
+  
+
+}
+
+.box{
+  background-color: #D3D3D3;
+  height: 98%;
+  width: 97.8%;
+  padding: 10px;
+  box-shadow: 8px 8px 80px red; 
+  margin : auto;
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+.models{
+  display: inline-block;
+  float: left;
+  margin:20px;
+  margin-left: 60px;
+  box-shadow: 12px 12px 10px grey;
+  background-color: white;
+  text-align: center;
+  cursor: pointer;
+  width: 400px;
+  
+}
+.sl-model{
+margin-top: 80px;
+  margin-left: 20%;
+}
+.l-model{
+  margin-top: 80px;
+
+}
+.models img{
+  width: 100%;
+  padding: 5px;
+  padding-bottom: 0px;
+
+}
+
+.models model-title{
+  font-weight: 100px;
+  margin: 0px;
+
+}
+
+.models .run{
+  background-color: #FFC107;
+  width: 80%;
+  height: 40px;
+  margin: auto;
+  margin-bottom: 20px;
+  border-radius: 2%;
+  text-align: center;
+
+}
+.models p{
+  padding-top: 10px;
+  font-weight: 400;
+}
+
+
+
 </style>
 
+<script>
 
+
+function scrollWin() {
+    //window.scrollBy(0, 760);
+  window.scrollBy({ 
+  top: 550, // could be negative value
+  left: 0, 
+  behavior: 'smooth' 
+});
+}
+</script>
 		
 </body>
 
