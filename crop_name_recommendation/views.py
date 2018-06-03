@@ -260,13 +260,11 @@ def fileupload(request):
       test_records.append(requestJson['clay'])
       testD = ",".join(str(item) for item in test_records) 
       neuralNetwork = NeuralNetwork()
-      
       nnResult = neuralNetwork.runAlgorithm(testD)
       df = pd.DataFrame({"Neural ": nnResult, "NaiveBayes":nbResult, "SVM ":svmResult,"RandomF":rfResult, "Ensemble":enResult})
       df.to_csv("allAlgoResult.csv", index = False)
-
       result = neuralNetwork.runAlgorithm(testD)
       response = JsonResponse({'predict_label':result})
       return response
    
-   
+
