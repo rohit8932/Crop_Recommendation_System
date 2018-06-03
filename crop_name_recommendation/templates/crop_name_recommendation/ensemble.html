@@ -130,8 +130,8 @@
 						<div class="activity_box activity_box2">
 							<h3>Ensemble</h3>
 							<div class="scrollbar" id="style-2">
-								<ul>
-							      Predict class Name :: <br><br><br><br><br><li style="font-weight: bold; list-style: none" ng-bind="ensemblePredictLabel.predict_label"></li>
+								<ul style="font-weight: bold">
+							      Crops you should Consider <br><br><br><br><br><li style="font-weight: bold; list-style: none" ng-bind="ensemblePredictLabel.predict_label"></li>
 								</ul>
 							</div>
 							
@@ -141,9 +141,7 @@
 						<div class="clearfix"> </div>
 					</div>
 
-					<div class="runfile">
-						<input type="button" value="UploadFile"  ng-click="runFile()" style="display: inline-block; float: left;height: 50px;width: 120px;margin-left: 400px;margin-top: 250px; background-color: red; padding: 0px;border: 0px;" >
-					</div>
+					
 
 					<div class="clearfix"> </div>
 					
@@ -163,11 +161,114 @@
 						  'Deep black soil',
 						  'Medium soil',
 						  'Shallow soil',
-						  'Red soil',
+						  'Red Soils',
 						  'Laterite soil'
 						]
 						$scope.soilTypeSelection = $scope.soilTypes[0];
+						$scope.runNaiveBayes = function(){
+						var testDataNB = {
+						   soil_type: $scope.soilTypeSelection,
+						   soil_depth : $scope.soil_depth,
+						   ph : $scope.ph,
+						   bulk_density:$scope.bulk_density,
+						   ec : $scope.ec,
+						   organic_carbon : $scope.organic_carbon,
+						   soil_moisture_retention : $scope.soil_moisture_retention,
+						   availabel_water_capacity : $scope.availabel_water_capacity,
+						   infiltration_rate : $scope.infiltration_rate,
+						   clay:$scope.clay
+						 }
+						 $scope.testDataset.push(testDataNB);
+						 
+						 $http.post("../naive_bayes_algo/",testDataNB).then(function(response){
+						     $scope.nbPredictLabel = response.data;
+							 console.log($scope.nbPredictLabel);
+						  });
+						}
 						
+						$scope.runSVM = function(){
+						var testDataSVM = {
+						   soil_type: $scope.soilTypeSelection,
+						   soil_depth : $scope.soil_depth,
+						   ph : $scope.ph,
+						   bulk_density:$scope.bulk_density,
+						   ec : $scope.ec,
+						   organic_carbon : $scope.organic_carbon,
+						   soil_moisture_retention : $scope.soil_moisture_retention,
+						   availabel_water_capacity : $scope.availabel_water_capacity,
+						   infiltration_rate : $scope.infiltration_rate,
+						   clay:$scope.clay
+						 }
+						 $scope.testDataset.push(testDataSVM);
+						 
+						 $http.post("../svm_algo/",testDataSVM).then(function(response){
+						     $scope.svmPredictLabel = response.data;
+							 console.log($scope.svmPredictLabel);
+						  });
+						}
+						
+						$scope.runNeuralNetwork = function(){
+						var testDataNeuralNetwork = {
+						   soil_type: $scope.soilTypeSelection,
+						   soil_depth : $scope.soil_depth,
+						   ph : $scope.ph,
+						   bulk_density:$scope.bulk_density,
+						   ec : $scope.ec,
+						   organic_carbon : $scope.organic_carbon,
+						   soil_moisture_retention : $scope.soil_moisture_retention,
+						   availabel_water_capacity : $scope.availabel_water_capacity,
+						   infiltration_rate : $scope.infiltration_rate,
+						   clay:$scope.clay
+						 }
+						 $scope.testDataset.push(testDataNeuralNetwork);
+						 
+						 $http.post("../neural_network_algo/",testDataNeuralNetwork).then(function(response){
+						     $scope.neuralNetworkPredictLabel = response.data;
+							 console.log($scope.neuralNetworkPredictLabel);
+						  });
+						}
+						
+						$scope.randomForestNetwork = function(){
+						var testDataRandomForest = {
+						   soil_type: $scope.soilTypeSelection,
+						   soil_depth : $scope.soil_depth,
+						   ph : $scope.ph,
+						   bulk_density:$scope.bulk_density,
+						   ec : $scope.ec,
+						   organic_carbon : $scope.organic_carbon,
+						   soil_moisture_retention : $scope.soil_moisture_retention,
+						   availabel_water_capacity : $scope.availabel_water_capacity,
+						   infiltration_rate : $scope.infiltration_rate,
+						   clay:$scope.clay
+						 }
+						 $scope.testDataset.push(testDataRandomForest);
+						 
+						 $http.post("../random_forest_algo/",testDataRandomForest).then(function(response){
+						     $scope.randomForestPredictLabel = response.data;
+							 console.log($scope.randomForestPredictLabel);
+						  });
+						}
+						$scope.hybridData=[]
+						$scope.hybridFinalData=[]
+						$scope.requestHybridData=[]
+						$scope.runHybrideAlgo= function(){
+						  console.log($scope.randomForestPredictLabel);
+						  console.log($scope.neuralNetworkPredictLabel);
+						  console.log($scope.svmPredictLabel);
+						  console.log($scope.nbPredictLabel);
+						  data={
+						    "random_forest_label_name":$scope.randomForestPredictLabel.predict_label,
+							"neural_network_label_name":$scope.neuralNetworkPredictLabel.predict_label,
+							"svm_label_name":$scope.svmPredictLabel.predict_label,
+							"nb_label_name":$scope.nbPredictLabel.predict_label,
+						  }
+						  $scope.requestHybridData.push(data);
+						  $http.post("../hybrid_algo/",data).then(function(response){
+						     $scope.bybridAlgo = response.data;
+							 console.log($scope.bybridAlgo);
+						  });
+						  
+						}
 
 
 						$scope.runEalgo = function(){
@@ -190,53 +291,6 @@
 							 console.log($scope.ensemblePredictLabel);
 						  });
 						}
-
-
-						$scope.runFile = function(){
-						var testDataRandomForest = {
-						   soil_type: $scope.soilTypeSelection,
-						   soil_depth : $scope.soil_depth,
-						   ph : $scope.ph,
-						   bulk_density:$scope.bulk_density,
-						   ec : $scope.ec,
-						   organic_carbon : $scope.organic_carbon,
-						   soil_moisture_retention : $scope.soil_moisture_retention,
-						   availabel_water_capacity : $scope.availabel_water_capacity,
-						   infiltration_rate : $scope.infiltration_rate,
-						   clay:$scope.clay
-						 }
-						 $scope.testDataset.push(testDataRandomForest);
-						 
-						 $http.post("../fileupload/",testDataRandomForest){
-						     
-						  };
-						}
-
-
-
-
-
-						/*$scope.hybridData=[]
-						$scope.hybridFinalData=[]
-						$scope.requestHybridData=[]
-						$scope.runHybrideAlgo= function(){
-						  console.log($scope.randomForestPredictLabel);
-						  console.log($scope.neuralNetworkPredictLabel);
-						  console.log($scope.svmPredictLabel);
-						  console.log($scope.nbPredictLabel);
-						  data={
-						    "random_forest_label_name":$scope.randomForestPredictLabel.predict_label,
-							"neural_network_label_name":$scope.neuralNetworkPredictLabel.predict_label,
-							"svm_label_name":$scope.svmPredictLabel.predict_label,
-							"nb_label_name":$scope.nbPredictLabel.predict_label,
-						  }
-						  $scope.requestHybridData.push(data);
-						  $http.post("../hybrid_algo/",data).then(function(response){
-						     $scope.bybridAlgo = response.data;
-							 console.log($scope.bybridAlgo);
-						  });
-						  
-						}*/
 						
 					 });
 			</script>
