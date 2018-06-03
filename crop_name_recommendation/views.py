@@ -247,3 +247,9 @@ def hybrideAlgo(request):
       print("RESPONSE :: ",res)
       response = JsonResponse(res)
       return response
+
+
+
+
+
+   
