@@ -12,14 +12,15 @@ from crop_name_recommendation.SVM import SVM
 from crop_name_recommendation.neural_network import NeuralNetwork
 from crop_name_recommendation.random_forest import RandomForest
 from crop_name_recommendation.ensemble import ensemble
+#from crop_name_recommendation.all_algo import Neural
 
 from collections import Counter
 
 def index(request):
-   return render(request, 'crop_name_recommendation/home.html')
+   return render(request, 'crop_name_recommendation/index.html')
 
 def home(request):
-   return render(request, 'crop_name_recommendation/index.html')
+   return render(request, 'crop_name_recommendation/home.html')
 
 def svm(request):
    return render(request, 'crop_name_recommendation/svm.html')
@@ -35,6 +36,12 @@ def randomforest(request):
 
 def ensembleTech(request):
    return render(request, 'crop_name_recommendation/ensemble.html')
+
+def aboutus(request):
+   return render(request, 'crop_name_recommendation/aboutus.html')
+
+def contactus(request):
+   return render(request, 'crop_name_recommendation/contactus.html')
 
 def signup(request):
        if(request.method == 'GET'):
@@ -93,7 +100,7 @@ def signin(request):
                      if user.user_email==user_name and user.user_password == userPassword:
                         print("Login successfully.. ")
                         request.session['session_user_name']=user_name
-                        url_path = 'crop_name_recommendation/index.html'
+                        url_path = 'crop_name_recommendation/home.html'
                         message = 'login successfully'
                      else:
                         url_path = 'crop_name_recommendation/login.html'
@@ -231,19 +238,35 @@ def runEAlgo(request):
                 response = JsonResponse({'predict_label':result})
                 return response   
 
-
-def hybrideAlgo(request):
-   if(request.method== 'POST'):
+def fileupload(request):
+   nnResult = []
+   nbResult = []
+   svmResult = []
+   rfResult = []
+   enResult = []
+   if(request.method == 'POST'):
       print("request Data :: ",request.body)
       requestJson = json.loads(request.body) 
       test_records = []
-      test_records.append(requestJson['random_forest_label_name'])
-      test_records.append(requestJson['neural_network_label_name'])
-      test_records.append(requestJson['svm_label_name'])
-      test_records.append(requestJson['nb_label_name'].replace("\n",""))
-      print("TEST DATA :: ")
-      print(test_records)
-      res = Counter(test_records)
-      print("RESPONSE :: ",res)
-      response = JsonResponse(res)
+      test_records.append(requestJson['soil_type'])
+      test_records.append(requestJson['soil_depth'])
+      test_records.append(requestJson['ph'])
+      test_records.append(requestJson['bulk_density'])
+      test_records.append(requestJson['ec'])
+      test_records.append(requestJson['organic_carbon'])
+      test_records.append(requestJson['soil_moisture_retention'])
+      test_records.append(requestJson['availabel_water_capacity'])
+      test_records.append(requestJson['infiltration_rate'])
+      test_records.append(requestJson['clay'])
+      testD = ",".join(str(item) for item in test_records) 
+      neuralNetwork = NeuralNetwork()
+      
+      nnResult = neuralNetwork.runAlgorithm(testD)
+      df = pd.DataFrame({"Neural ": nnResult, "NaiveBayes":nbResult, "SVM ":svmResult,"RandomF":rfResult, "Ensemble":enResult})
+      df.to_csv("allAlgoResult.csv", index = False)
+
+      result = neuralNetwork.runAlgorithm(testD)
+      response = JsonResponse({'predict_label':result})
       return response
+   
+   

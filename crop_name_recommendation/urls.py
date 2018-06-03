@@ -3,7 +3,8 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.index, name='login'),
+    url(r'^$', views.signin, name='index'),
+    #url(r'^$', views.index, name='login'),
     url(r'^login/$', views.signin, name='login'),
     url(r'^signup/$', views.signup, name='signup'),
     url(r'^home/$', views.home, name='home'),
@@ -15,8 +16,10 @@ urlpatterns = [
     url(r'^svm_algo/$', views.svmAlgo, name='svm_algo'),
     url(r'^neural_network_algo/$', views.neuralNetworkAlgo, name='neural_network_algo'),
     url(r'^random_forest_algo/$', views.randomForestAlgo, name='random_forest_algo'),
-    url(r'^hybrid_algo/$', views.hybrideAlgo, name='hybrid_algo'),
     url(r'^e_algo/$', views.runEAlgo, name='e_algo'),
     url(r'^ensembleTech/$', views.ensembleTech, name='ensembleTech'),
     url(r'^logout/$', views.userLogout, name='logout'),
+    url(r'^aboutus/$', views.aboutus, name='aboutus'),
+    url(r'^contactus/$', views.contactus, name='contactus'),
+    url(r'^fileupload/$', views.fileupload, name='fileupload'),
 ]

@@ -40,7 +40,7 @@
           
   <div class="algo-wrapper" style=""  >
     <div class="box">
-		     <div class="models" onclick="window.location.href='svm'" style=" ">
+		     <div class="models" onclick="window.location.href='{% url 'svm' %}'" style=" ">
                     
                       <img src="{% static 'images/slider7.jpg' %}" alt="">
                       <h3 class="model-title"><p>SVM</p></h3>
@@ -49,7 +49,7 @@
                     </div>
                   
 				  
-				  <div class="models" onclick="window.location.href='naivebayes'">
+				  <div class="models" onclick="window.location.href=  '{% url 'naivebayes' %}'">
                     
                       <img src="{% static 'images/slider6.jpg' %}" alt="">
                       <h3 class="model-title"><p>Naive Bayes</p></h3>
@@ -57,7 +57,7 @@
                     </div>
                   
 				  
-				  <div class=" models" onclick="window.location.href='randomforest'" >
+				  <div class=" models" onclick="window.location.href='{% url 'randomforest' %}'" >
                     
                       <img src="{% static 'images/slider5.jpg' %}" alt="" >
                       <h3 class="model-title"><p>Random Forest</p></h3>
@@ -72,7 +72,7 @@
 
           
 				  
-				  <div class="models sl-model" onclick="window.location.href='neuralnetwork'" >
+				  <div class="models sl-model" onclick="window.location.href='{% url 'neuralnetwork' %}'" >
                     
                       <img src="{% static 'images/slider4.jpg' %}" alt="" >
                       <h3 class="model-title"><p>Neural Network</p></h3>
@@ -85,7 +85,7 @@
 
 
 
-          <div class="models l-model" onclick="window.location.href='ensembleTech'" >
+          <div class="models l-model" onclick="window.location.href='{% url 'ensembleTech' %}'" >
             
                     
                       <img src="{% static 'images/slider3.jpg' %}" alt="" >
@@ -105,8 +105,8 @@
           <li id="navlink" class="F"><a href="#" target="_self">Home</a></li>
 			    <li id="navlink"><a href="{% url 'login' %}" target="_self">Log in</a></li>
 			    <li id="navlink"><a href="{% url 'signup' %}" target="_self">Sign up </a></li>
-          <li id="navlink"><a href="#" target="_self">About Us</a></li>
-          <li id="navlink"><a href="#" target="_self">Contact Us</a></li>
+          <li id="navlink"><a href="{% url 'aboutus' %}" target="_self">About Us</a></li>
+          <li id="navlink"><a href="{% url 'contactus' %}" target="_self">Contact Us</a></li>
     
         </ul>
 </div>
@@ -229,7 +229,7 @@ margin-top: 80px;
 function scrollWin() {
     //window.scrollBy(0, 760);
   window.scrollBy({ 
-  top: 550, // could be negative value
+  top: 750, // could be negative value
   left: 0, 
   behavior: 'smooth' 
 });
