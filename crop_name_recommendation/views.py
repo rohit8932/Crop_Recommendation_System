@@ -246,10 +246,4 @@ def hybrideAlgo(request):
       res = Counter(test_records)
       print("RESPONSE :: ",res)
       response = JsonResponse(res)
-      return response
-
-
-
-
-
-   
+      return response   
